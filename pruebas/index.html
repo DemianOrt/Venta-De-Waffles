@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waffles Snoopy & Stitch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka One', cursive;
+      background-image: url('https://wallpapercave.com/wp/wp9208283.jpg'); /* Fondo Stitch y Snoopy */
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #fff;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+      color: #fce38a;
+    }
+
+    nav a {
+      color: #fce38a;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #333;
+      margin: 2rem;
+      border-radius: 20px;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .producto {
+      background: #fce38a;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .producto h3 {
+      margin-top: 0.5rem;
+      color: #222;
+    }
+
+    .producto p {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .galeria img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fce38a;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .redes a {
+      margin: 0 10px;
+      color: #fce38a;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Snoopy_Peanuts.png" alt="Logo Snoopy" />
+    <h1>Waffles Snoopy & Stitch</h1>
+    <nav>
+      <a href="#productos">Menú</a>
+      <a href="#galeria">Galería</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+  </header>
+
+  <section id="productos">
+    <h2>🍓 Nuestros Waffles</h2>
+    <div class="productos">
+      <div class="producto">
+        <img src="https://i.pinimg.com/564x/9e/f6/7b/9ef67b5ad2c5e1f4c2e3c97399c74ce6.jpg" alt="Waffle clásico" />
+        <h3>Waffle Clásico</h3>
+        <p>Con miel de maple y mantequilla. ¡Delicioso y crujiente!</p>
+      </div>
+      <div class="producto">
+        <img src="https://i.pinimg.com/564x/69/f2/8e/69f28e8f087b389ec0d4b14312a17c2f.jpg" alt="Waffle de frutas" />
+        <h3>Waffle de Frutas</h3>
+        <p>Con fresas, plátano, kiwi y crema batida.</p>
+      </div>
+      <div class="producto">
+        <img src="https://i.pinimg.com/564x/d3/e0/e4/d3e0e44f9b9847ed0c5d5dd29e50f688.jpg" alt="Waffle con Nutella" />
+        <h3>Waffle con Nutella</h3>
+        <p>Chocolate, fresa y mucho amor. ¡Un favorito de Stitch!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <h2>📸 Galería</h2>
+    <div class="galeria">
+      <img src="https://i.pinimg.com/564x/00/4f/07/004f07d89785ce02f058b0c6376211ce.jpg" alt="Waffle 1">
+      <img src="https://i.pinimg.com/564x/0b/65/e2/0b65e248016fbdb431a5a2736c540bae.jpg" alt="Waffle 2">
+      <img src="https://i.pinimg.com/564x/9d/67/fb/9d67fb09894c3eecdf69451a7d2684e3.jpg" alt="Waffle 3">
+      <img src="https://i.pinimg.com/564x/d4/88/93/d48893fefb4d26fbb2d7293e07bc96c0.jpg" alt="Waffle 4">
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <h2>💬 Sobre Nosotros</h2>
+    <p>Somos un pequeño negocio local inspirado en los personajes favoritos de muchos: Snoopy y Stitch. Nuestros waffles están hechos con cariño, ingredientes de calidad y el toque mágico de la diversión. ¡Ven a disfrutar una experiencia dulce y única!</p>
+  </section>
+
+  <footer>
+    <p>📍 Estado de México | 📞 WhatsApp: 5612345678</p>
+    <div class="redes">
+      <a href="https://facebook.com" target="_blank">Facebook</a> |
+      <a href="https://instagram.com" target="_blank">Instagram</a> |
+      <a href="https://tiktok.com" target="_blank">TikTok</a>
+    </div>
+    <p>© 2025 Waffles Snoopy & Stitch - Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

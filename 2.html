@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Waffles Snoopy & Stitch - Deliciosos waffles inspirados en Snoopy y Stitch, hechos con amor en el Estado de México." />
+    <meta name="keywords" content="waffles, Snoopy, Stitch, postres, Estado de México, comida, dulces" />
+    <meta property="og:title" content="Waffles Snoopy & Stitch" />
+    <meta property="og:description"
+        content="Deliciosos waffles inspirados en Snoopy y Stitch en el Estado de México." />
+    <meta property="og:image" content="URL_de_imagen_representativa.jpg" />
+    <meta property="og:url" content="URL_de_tu_sitio" />
+    <title>Waffles Snoopy & Stitch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Fredoka One', cursive;
+            background-image: url('Fondo.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #fce38a;
+        }
+
+        nav a {
+            color: #fce38a;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e0c070;
+            border-bottom: 2px solid #e0c070;
+            transition: all 0.3s ease;
+        }
+
+        section {
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.85);
+            color: #333;
+            margin: 2rem;
+            border-radius: 20px;
+        }
+
+        .productos,
+        .testimonios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .producto,
+        .testimonio {
+            background: #fce38a;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .producto:hover,
+        .testimonio:hover {
+            transform: scale(1.05);
+        }
+
+        .producto img {
+            width: 100%;
+            border-radius: 10px;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .producto h3,
+        .testimonio h3 {
+            margin-top: 0.5rem;
+            color: #222;
+        }
+
+        .producto p,
+        .testimonio p {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .boton-pedido {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .boton-pedido:hover {
+            background-color: #45a049;
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .instagram-feed {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .instagram-feed img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        input,
+        textarea,
+        button {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        button {
+            background-color: #fce38a;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0c070;
+        }
+
+        .cta-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fce38a;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .redes a {
+            margin: 0 10px;
+            color: #fce38a;
+            text-decoration: none;
+        }
+
+        .redes a:hover {
+            color: #e0c070;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background-image: url('Fondo-mobile.jpeg');
+                background-attachment: scroll;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .producto p,
+            .testimonio p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="Logo.jpeg" alt="Logo de Waffles Snoopy & Stitch" />
+        <h1>Waffles Snoopy & Stitch</h1>
+        <nav>
+            <a href="#productos">Menú</a>
+            <a href="#promociones">Promociones</a>
+            <a href="#galeria">Galería</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#ubicacion">Ubicación</a>
+        </nav>
+    </header>
+
+    <section id="waffle-mes">
+        <h2>Waffle del Mes</h2>
+        <div class="productos">
+            <div class="producto">
+                <img src="https://i.pinimg.com/564x/00/4f/07/004f07d89785ce02f058b0c6376211ce.jpg"
+                    alt="Waffle Stitch Aloha con piña y coco" />
+                <h3>Waffle Stitch Aloha</h3>
+                <p>Con piña, coco rallado y crema batida. ¡Un toque tropical!</p>
+                <p><strong>Precio: $60 MXN</strong></p>
+                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20Stitch%20Aloha"
+                    class="boton-pedido">Pedir Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos">
+        <h2>Nuestros Waffles</h2>
+        <div class="productos">
+            <div class="producto">
+                <img src="waffle clasico.jpg" alt="Waffle clásico con miel de maple" />
+                <h3>Waffle Clásico</h3>
+                <p>Con miel de maple y mantequilla. ¡Delicioso y crujiente!</p>
+                <p><strong>Precio: $50 MXN</strong></p>
+                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20Clásico"
+                    class="boton-pedido">Pedir Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="waffle frutas.jpg"
+                    alt="Waffle con fresas, plátano y kiwi" />
+                <h3>Waffle de Frutas</h3>
+                <p>Con fresas, plátano, kiwi. ¡Riquísimo!</p>
+                <p><strong>Precio: $55 MXN</strong></p>
+                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20de%20Frutas"
+                    class="boton-pedido">Pedir Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="waffle con nutella.jpg"
+                    alt="Waffle con Nutella y fresas" />
+                <h3>Waffle con Nutella</h3>
+                <p>Chocolate, fresa y mucho amor. ¡Un favorito de Stitch!</p>
+                <p><strong>Precio: $60 MXN</strong></p>
+                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20con%20Nutella"
+                    class="boton-pedido">Pedir Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="promociones">
+        <h2>Ofertas Especiales</h2>
+        <div class="productos">
+            <div class="producto">
+                <h3>Combo Snoopy</h3>
+                <p>Waffle Clásico + Bebida a elección por $70 MXN.</p>
+                <a href="https://wa.me/5612345678?text=Quiero%20el%20Combo%20Snoopy" class="boton-pedido">Pedir
+                    Ahora</a>
+            </div>
+            <div class="producto">
+                <h3>Combo Stitch</h3>
+                <p>Waffle con Nutella + Café o Jugo por $80 MXN.</p>
+                <a href="https://wa.me/5612345678?text=Quiero%20el%20Combo%20Stitch" class="boton-pedido">Pedir
+                    Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="waffle crema y frutas.jpg"
+                        alt="Waffle decorado con crema y frutas" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="waffle con chocolate.jpg"
+                        alt="Waffle con chocolate y fresas" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="waffle helado y toppings.jpg"
+                        alt="Waffle con helado y toppings" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="waffle crema y frutos rojos.jpg"
+                        alt="Waffle con crema batida y frutos rojos" />
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <section id="instagram">
+        <h2>Nuestro Instagram</h2>
+        <div class="instagram-feed">
+            <img src="https://i.pinimg.com/564x/00/4f/07/004f07d89785ce02f058b0c6376211ce.jpg"
+                alt="Waffle en Instagram 1" />
+            <img src="https://i.pinimg.com/564x/0b/65/2e/0b65e248016fbdb431a5a2736c540bae.jpg"
+                alt="Waffle en Instagram 2" />
+            <img src="https://i.pinimg.com/564x/9d/67/fb/9d67fb09894c3eecdf69451a7d2684e3.jpg"
+                alt="Waffle en Instagram 3" />
+        </div>
+        <p><a href="https://instagram.com" target="_blank" class="boton-pedido">Síguenos en Instagram</a></p>
+    </section>
+
+    <section id="testimonios">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonios">
+            <div class="testimonio">
+                <p>"¡Los mejores waffles que he probado! El de Nutella es mi favorito." - Ana G.</p>
+            </div>
+            <div class="testimonio">
+                <p>"El ambiente y los waffles son súper divertidos, perfecto para niños." - Carlos M.</p>
+            </div>
+            <div class="testimonio">
+                <p>"Me encanta el Waffle Stitch Aloha, ¡súper original!" - María P.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos un pequeño negocio local en el Estado de México, inspirado en la alegría de Snoopy y Stitch. Usamos
+            ingredientes frescos y recetas únicas para crear waffles que no solo son deliciosos, sino también una
+            experiencia divertida. ¡Ven a probar la magia de nuestros waffles!</p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <form action="mailto:contacto@wafflessnoopystitch.com" method="post" enctype="text/plain">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required />
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <section id="ubicacion">
+        <h2>Encuéntranos</h2>
+        <p>Av. Central 123, Toluca, Estado de México</p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.672318432316!2d-99.65361468509248!3d19.42639118689047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzM1LjAiTiA5OcKwMzknMTMuMCJX!5e0!3m2!1ses!2smx!4v1634567891234"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <a href="https://wa.me/5612345678?text=Quiero%20hacer%20un%20pedido" class="cta-button">¡Pide tus waffles ahora!</a>
+
+    <footer>
+        <p>Estado de México | WhatsApp: 5612345678</p>
+        <div class="redes">
+            <a href="https://facebook.com" target="_blank">Facebook</a> |
+            <a href="https://instagram.com" target="_blank">Instagram</a> |
+            <a href="https://tiktok.com" target="_blank">TikTok</a>
+        </div>
+        <p>2025 Waffles Snoopy & Stitch - Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                600: { slidesPerView: 2 },
+                900: { slidesPerView: 3 }
+            }
+        });
+    </script>
+</body>
+
+</html>

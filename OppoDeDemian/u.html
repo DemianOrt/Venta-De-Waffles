@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description"
+                content="Waffles Snoopy & Stitch - Deliciosos waffles inspirados en Snoopy y Stitch, hechos con amor en el Estado de México." />
+        <meta name="keywords" content="waffles, Snoopy, Stitch, postres, Estado de México, comida, dulces" />
+        <meta property="og:title" content="Waffles Snoopy & Stitch" />
+        <meta property="og:description"
+                content="Deliciosos waffles inspirados en Snoopy y Stitch en el Estado de México." />
+        <meta property="og:image" content="URL_de_imagen_representativa.jpg" />
+        <meta property="og:url" content="URL_de_tu_sitio" />
+        <title>Waffles Snoopy & Stitch</title>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <style>
+                :root {
+                        --primary-color: #fce38a;
+                        --secondary-color: #e0c070;
+                        --accent-color: #4CAF50;
+                        --text-dark: #222;
+                        --text-light: #444;
+                        --spacing-xs: 8px;
+                        --spacing-sm: 16px;
+                        --spacing-md: 24px;
+                        --spacing-lg: 32px;
+                        --border-radius: 12px;
+                }
+
+                * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                }
+
+                body {
+                        font-family: 'Fredoka One', cursive;
+                        background-image: url('Fondo.jpeg');
+                        background-size: cover;
+                        background-attachment: fixed;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        color: #fff;
+                        line-height: 1.6;
+                        overflow-x: hidden;
+                }
+
+                header {
+                        background-color: rgba(0, 0, 0, 0.7);
+                        padding: var(--spacing-sm);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        position: sticky;
+                        top: 0;
+                        z-index: 1000;
+                }
+
+                header img.logo {
+                        height: 50px;
+                }
+
+                header h1 {
+                        font-size: 2rem;
+                        color: var(--primary-color);
+                        margin: 0 var(--spacing-sm);
+                }
+
+                nav {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        height: 100%;
+                        width: 250px;
+                        background: rgba(0, 0, 0, 0.9);
+                        flex-direction: column;
+                        padding: var(--spacing-lg);
+                        transform: translateX(100%);
+                        transition: transform 0.3s ease;
+                }
+
+                nav.active {
+                        display: flex;
+                        transform: translateX(0);
+                }
+
+                nav a {
+                        color: var(--primary-color);
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        margin: var(--spacing-sm) 0;
+                        transition: color 0.3s ease;
+                }
+
+                nav a:hover {
+                        color: var(--secondary-color);
+                }
+
+                .menu-toggle {
+                        display: block;
+                        font-size: 1.5rem;
+                        color: var(--primary-color);
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        padding: var(--spacing-xs);
+                }
+
+                section {
+                        padding: var(--spacing-md);
+                        background: rgba(255, 255, 255, 0.85);
+                        color: var(--text-dark);
+                        margin: var(--spacing-md) auto;
+                        border-radius: var(--border-radius);
+                        max-width: 1200px;
+                        opacity: 0;
+                        transform: translateY(20px);
+                        animation: fadeIn 0.8s forwards;
+                }
+
+                @keyframes fadeIn {
+                        to {
+                                opacity: 1;
+                                transform: translateY(0);
+                        }
+                }
+
+                h2 {
+                        font-size: 1.8rem;
+                        margin-bottom: var(--spacing-sm);
+                        text-align: center;
+                        color: var(--text-dark);
+                }
+
+                .productos,
+                .testimonios,
+                .faq {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                        gap: var(--spacing-sm);
+                        text-align: center;
+                }
+
+                .producto,
+                .testimonio,
+                .faq-item {
+                        background: var(--primary-color);
+                        border-radius: var(--border-radius);
+                        padding: var(--spacing-sm);
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        transition: transform 0.3s ease;
+                }
+
+                .producto:hover,
+                .testimonio:hover,
+                .faq-item:hover {
+                        transform: translateY(-5px);
+                }
+
+                .producto img,
+                .swiper-slide img {
+                        width: 100%;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: var(--border-radius);
+                        loading: lazy;
+                }
+
+                .producto h3,
+                .testimonio h3,
+                .faq-item h3 {
+                        font-size: 1.1rem;
+                        margin: var(--spacing-xs) 0;
+                        color: var(--text-dark);
+                }
+
+                .producto p,
+                .testimonio p,
+                .faq-item p {
+                        font-size: 0.9rem;
+                        color: var(--text-light);
+                }
+
+                .boton-pedido {
+                        display: inline-block;
+                        background: var(--accent-color);
+                        color: white;
+                        padding: 8px 16px;
+                        border-radius: var(--border-radius);
+                        text-decoration: none;
+                        margin-top: var(--spacing-xs);
+                        transition: background 0.3s ease;
+                }
+
+                .swiper-container {
+                        width: 100%;
+                        padding: var(--spacing-sm);
+                }
+
+                .instagram-feed {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: var(--spacing-sm);
+                        justify-content: center;
+                }
+
+                .instagram-feed img {
+                        width: 120px;
+                        height: 120px;
+                        object-fit: cover;
+                        border-radius: var(--border-radius);
+                        loading: lazy;
+                }
+
+                .form-container {
+                        max-width: 500px;
+                        margin: 0 auto;
+                        text-align: center;
+                }
+
+                form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--spacing-sm);
+                }
+
+                input,
+                textarea,
+                button {
+                        padding: var(--spacing-xs);
+                        border-radius: 8px;
+                        border: 1px solid #ccc;
+                        font-family: 'Fredoka One', cursive;
+                        font-size: 0.9rem;
+                }
+
+                button {
+                        background: var(--primary-color);
+                        border: none;
+                        cursor: pointer;
+                        transition: background 0.3s ease;
+                }
+
+                button:hover {
+                        background: var(--secondary-color);
+                }
+
+                .whatsapp-icon {
+                        width: 40px;
+                        height: 40px;
+                        margin: var(--spacing-sm) auto;
+                }
+
+                .cta-button {
+                        position: fixed;
+                        bottom: var(--spacing-md);
+                        right: var(--spacing-md);
+                        background: var(--accent-color);
+                        color: white;
+                        padding: 12px 20px;
+                        border-radius: 50px;
+                        text-decoration: none;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                        z-index: 1000;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        animation: pulse 2s infinite;
+                }
+
+                .cta-button img {
+                        width: 24px;
+                        height: 24px;
+                }
+
+                @keyframes pulse {
+                        0% {
+                                transform: scale(1);
+                        }
+
+                        50% {
+                                transform: scale(1.05);
+                        }
+
+                        100% {
+                                transform: scale(1);
+                        }
+                }
+
+                .scroll-top {
+                        position: fixed;
+                        bottom: var(--spacing-md);
+                        left: var(--spacing-md);
+                        background: var(--primary-color);
+                        color: var(--text-dark);
+                        padding: 10px;
+                        border-radius: 50%;
+                        text-decoration: none;
+                        z-index: 1000;
+                        display: none;
+                }
+
+                .scroll-top.visible {
+                        display: block;
+                }
+
+                footer {
+                        background: rgba(0, 0, 0, 0.8);
+                        color: var(--primary-color);
+                        text-align: center;
+                        padding: var(--spacing-md);
+                        margin-top: var(--spacing-lg);
+                }
+
+                .redes a {
+                        margin: 0 10px;
+                        color: var(--primary-color);
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+                }
+
+                .redes a:hover {
+                        color: var(--secondary-color);
+                }
+
+                @media (min-width: 769px) {
+                        .menu-toggle {
+                                display: none;
+                        }
+
+                        nav {
+                                display: flex;
+                                position: static;
+                                width: auto;
+                                height: auto;
+                                background: none;
+                                transform: none;
+                                flex-direction: row;
+                                padding: 0;
+                        }
+
+                        nav a {
+                                font-size: 1rem;
+                                margin: 0 var(--spacing-sm);
+                        }
+
+                        header h1 {
+                                font-size: 2.5rem;
+                        }
+
+                        .producto img,
+                        .swiper-slide img {
+                                height: 180px;
+                        }
+
+                        .instagram-feed img {
+                                width: 150px;
+                                height: 150px;
+                        }
+
+                        h2 {
+                                font-size: 2rem;
+                        }
+                }
+
+                @media (max-width: 768px) {
+                        body {
+                                background-image: url('Fondo-mobile.jpeg');
+                                background-attachment: scroll;
+                        }
+
+                        header {
+                                flex-wrap: wrap;
+                                padding: var(--spacing-xs);
+                        }
+
+                        header h1 {
+                                font-size: 1.5rem;
+                        }
+
+                        .producto img,
+                        .swiper-slide img {
+                                height: 120px;
+                        }
+
+                        .instagram-feed img {
+                                width: 100px;
+                                height: 100px;
+                        }
+
+                        h2 {
+                                font-size: 1.5rem;
+                        }
+
+                        .producto p,
+                        .testimonio p,
+                        .faq-item p {
+                                font-size: 0.8rem;
+                        }
+                }
+        </style>
+</head>
+
+<body id="top">
+        <header>
+                <img src="Logo.jpeg" alt="Logo de Waffles Snoopy & Stitch" class="logo" />
+                <h1>Waffles Snoopy & Stitch</h1>
+                <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+                <nav>
+                        <a href="#waffle-mes">Waffle del Mes</a>
+                        <a href="#productos">Menú</a>
+                        <a href="#promociones">Promociones</a>
+                        <a href="#galeria">Galería</a>
+                        <a href="#instagram">Instagram</a>
+                        <a href="#testimonios">Testimonios</a>
+                        <a href="#nosotros">Nosotros</a>
+                        <a href="#contacto">Contacto</a>
+                        <a href="#faq">Preguntas Frecuentes</a>
+                        <a href="#ubicacion">Ubicación</a>
+                </nav>
+        </header>
+
+        <section id="waffle-mes">
+                <h2>Waffle del Mes</h2>
+                <div class="productos">
+                        <div class="producto">
+                                <img src="https://i.pinimg.com/564x/00/4f/07/004f07d89785ce02f058b0c6376211ce.jpg"
+                                        alt="Waffle Stitch Aloha con piña y coco" loading="lazy" />
+                                <h3>Waffle Stitch Aloha</h3>
+                                <p>Con piña, coco rallado y crema batida. ¡Un toque tropical!</p>
+                                <p><strong>Precio: $60 MXN</strong></p>
+                                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20Stitch%20Aloha"
+                                        class="boton-pedido">Pedir Ahora</a>
+                        </div>
+                </div>
+        </section>
+
+        <section id="productos">
+                <h2>Nuestros Waffles</h2>
+                <div class="productos">
+                        <div class="producto">
+                                <img src="wafle clasico.jpg" alt="Waffle clásico con miel de maple" loading="lazy" />
+                                <h3>Waffle Clásico</h3>
+                                <p>Con miel de maple y mantequilla. ¡Delicioso y crujiente!</p>
+                                <p><strong>Precio: $50 MXN</strong></p>
+                                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20Clásico"
+                                        class="boton-pedido">Pedir Ahora</a>
+                        </div>
+                        <div class="producto">
+                                <img src="https://i.pinimg.com/564x/69/f2/8e/69f28e8f087b389ec0d4b14312a17c2f.jpg"
+                                        alt="Waffle con fresas, plátano y kiwi" loading="lazy" />
+                                <h3>Waffle de Frutas</h3>
+                                <p>Con fresas, plátano, kiwi. ¡Riquísimo!</p>
+                                <p><strong>Precio: $55 MXN</strong></p>
+                                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20de%20Frutas"
+                                        class="boton-pedido">Pedir Ahora</a>
+                        </div>
+                        <div class="producto">
+                                <img src="https://i.pinimg.com/564x/d3/e0/e4/d3e0e44f9b9847ed0c5d5dd29e50f688.jpg"
+                                        alt="Waffle con Nutella y fresas" loading="lazy" />
+                                <h3>Waffle con Nutella</h3>
+                                <p>Chocolate, fresa y mucho amor. ¡Un favorito de Stitch!</p>
+                                <p><strong>Precio: $60 MXN</strong></p>
+                                <a href="https://wa.me/5612345678?text=Quiero%20pedir%20un%20Waffle%20con%20Nutella"
+                                        class="boton-pedido">Pedir Ahora</a>
+                        </div>
+                </div>
+        </section>
+
+        <section id="promociones">
+                <h2>Ofertas Especiales</h2>
+                <div id="temporizador">Oferta válida hasta: <span id="countdown"></span></div>
+                <div class="productos">
+                        <div class="producto">
+                                <h3>Combo Snoopy</h3>
+                                <p>Waffle Clásico + Bebida a elección por $70 MXN.</p>
+                                <a href="https://wa.me/5612345678?text=Quiero%20el%20Combo%20Snoopy"
+                                        class="boton-pedido">Pedir Ahora</a>
+                        </div>
+                        <div class="producto">
+                                <h3>Combo Stitch</h3>
+                                <p>Waffle con Nutella + Café o Jugo por $80 MXN.</p>
+                                <a href="https://wa.me/5612345678?text=Quiero%20el%20Combo%20Stitch"
+                                        class="boton-pedido">Pedir Ahora</a>
+                        </div>
+                </div>
+        </section>
+
+        <section id="galeria">
+                <h2>Galería</h2>
+                <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                        <img src="https://i.pinimg.com/564x/00/4f/07/004f07d89785ce02f058b0c6376211ce.jpg"
+                                                alt="Waffle decorado con crema y frutas" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                        <img src="https://i.pinimg.com/564x/0b/65/2e/0b65e248016fbdb431a5a2736c540bae.jpg"
+                                                alt="Waffle con chocolate y fresas" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                        <img src="https://i.pinimg.com/564x/9d/67/fb/9d67fb09894c3eecdf69451a7d2684e3.jpg"
+                                                alt="Waffle con helado y toppings" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                        <img src="https://i.pinimg.com/564x/d4/88/93/d48893fefb4d26fbb2d7293e07bc96c0.jpg"
+                                                alt="Waffle con crema batida y frutos rojos" loading="lazy" />
+                                </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+        </section>
+
+        <section id="instagram">
+                <h2>Nuestro Instagram</h2>
+                <div class="instagram-feed">
+                        <img src="https://i.pinimg.com/564x/00/4f/07/004f07d89785ce02f058b0c6376211ce.jpg"
+                                alt="Waffle en Instagram 1" loading="lazy" />
+                        <img src="https://i.pinimg.com/564x/0b/65/2e/0b65e248016fbdb431a5a2736c540bae.jpg"
+                                alt="Waffle en Instagram 2" loading="lazy" />
+                        <img src="https://i.pinimg.com/564x/9d/67/fb/9d67fb09894c3eecdf69451a7d2684e3.jpg"
+                                alt="Waffle en Instagram 3" loading="lazy" />
+                </div>
+                <p><a href="https://instagram.com" target="_blank" class="boton-pedido">Síguenos en Instagram</a></p>
+        </section>
+
+        <section id="testimonios">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <div class="testimonios">
+                        <div class="testimonio">
+                                <p>"¡Los mejores waffles que he probado! El de Nutella es mi favorito." - Ana G.</p>
+                        </div>
+                        <div class="testimonio">
+                                <p>"El ambiente y los waffles son súper divertidos, perfecto para niños." - Carlos M.
+                                </p>
+                        </div>
+                        <div class="testimonio">
+                                <p>"Me encanta el Waffle Stitch Aloha, ¡súper original!" - María P.</p>
+                        </div>
+                </div>
+        </section>
+
+        <section id="nosotros">
+                <h2>Sobre Nosotros</h2>
+                <p>Somos un pequeño negocio local en el Estado de México, inspirado en la alegría de Snoopy y Stitch.
+                        Usamos ingredientes frescos y recetas únicas para crear waffles que no solo son deliciosos, sino
+                        también una experiencia divertida. ¡Ven a probar la magia de nuestros waffles!</p>
+        </section>
+
+        <section id="contacto">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Ícono de WhatsApp"
+                        class="whatsapp-icon" />
+                <div class="form-container">
+                        <form action="mailto:contacto@wafflessnoopystitch.com" method="post" enctype="text/plain">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" required />
+                                <label for="email">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" required />
+                                <label for="mensaje">Mensaje:</label>
+                                <textarea id="mensaje" name="mensaje" required></textarea>
+                                <button type="submit">Enviar</button>
+                        </form>
+                </div>
+        </section>
+
+        <section id="faq">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq">
+                        <div class="faq-item">
+                                <h3>¿Hacen envíos a domicilio?</h3>
+                                <p>Sí, ofrecemos envíos en el área de Toluca. Contáctanos por WhatsApp para coordinar.
+                                </p>
+                        </div>
+                        <div class="faq-item">
+                                <h3>¿Puedo personalizar mi waffle?</h3>
+                                <p>¡Claro! Puedes elegir tus ingredientes favoritos al hacer tu pedido.</p>
+                        </div>
+                        <div class="faq-item">
+                                <h3>¿Tienen opciones veganas?</h3>
+                                <p>Estamos trabajando en opciones veganas. ¡Pregunta por disponibilidad!</p>
+                        </div>
+                </div>
+        </section>
+
+        <section id="ubicacion">
+                <h2>Encuéntranos</h2>
+                <p>Av. Central 123, Toluca, Estado de México</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.672318432316!2d-99.65361468509248!3d19.42639118689047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzM1LjAiTiA5OcKwMzknMTMuMCJX!5e0!3m2!1ses!2smx!4v1634567891234"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
+        <a href="https://wa.me/5612345678?text=Quiero%20hacer%20un%20pedido" class="cta-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+                ¡Pide ahora!
+        </a>
+
+        <a href="#top" class="scroll-top">↑</a>
+
+        <footer>
+                <p>Estado de México | WhatsApp: 5612345678</p>
+                <div class="redes">
+                        <a href="https://facebook.com" target="_blank">Facebook</a> |
+                        <a href="https://instagram.com" target="_blank">Instagram</a> |
+                        <a href="https://tiktok.com" target="_blank">TikTok</a>
+                </div>
+                <p>2025 Waffles Snoopy & Stitch - Todos los derechos reservados.</p>
+        </footer>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+                // Menú hamburguesa
+                const menuToggle = document.querySelector('.menu-toggle');
+                const nav = document.querySelector('nav');
+                menuToggle.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                        menuToggle.textContent = nav.classList.contains('active') ? '✕' : '☰';
+                });
+
+                // Swiper para galería
+                var swiper = new Swiper('.swiper-container', {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                        loop: true,
+                        pagination: { el: '.swiper-pagination', clickable: true },
+                        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                        breakpoints: {
+                                600: { slidesPerView: 2 },
+                                900: { slidesPerView: 3 }
+                        }
+                });
+
+                // Temporizador de promociones
+                function startTimer(duration, display) {
+                        let timer = duration, hours, minutes, seconds;
+                        setInterval(function () {
+                                hours = parseInt(timer / 3600, 10);
+                                minutes = parseInt((timer % 3600) / 60, 10);
+                                seconds = parseInt(timer % 60, 10);
+                                display.textContent = `${hours}h ${minutes}m ${seconds}s`;
+                                if (--timer < 0) timer = duration;
+                        }, 1000);
+                }
+                window.onload = function () {
+                        let duration = 24 * 3600; // 24 horas
+                        let display = document.querySelector('#countdown');
+                        if (display) startTimer(duration, display);
+                };
+
+                // Botón Volver Arriba
+                const scrollTop = document.querySelector('.scroll-top');
+                window.addEventListener('scroll', () => {
+                        scrollTop.classList.toggle('visible', window.scrollY > 300);
+                });
+        </script>
+</body>
+
+</html>
