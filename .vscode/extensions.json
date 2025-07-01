@@ -8,6 +8,7 @@
         "ms-ceintl.vscode-language-pack-es",
         "ritwickdey.liveserver",
         "zignd.html-css-class-completion",
-        "ms-vscode.live-server"
+        "ms-vscode.live-server",
+        "ms-vscode-remote.remote-containers"
     ]
 }
