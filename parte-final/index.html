@@ -33,7 +33,7 @@
 
                 body {
                         font-family: 'Fredoka One', cursive;
-                        background-image: url('fondo.jpg');
+                        background-image: url('images/fondo.jpg');
                         background-size: cover;
                         background-attachment: fixed;
                         background-repeat: no-repeat;
@@ -44,26 +44,37 @@
                 }
 
                 header {
-                        background-color: rgba(0, 0, 0, 0.7);
-                        padding: var(--spacing-sm);
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        position: sticky;
-                        top: 0;
-                        z-index: 1000;
-                }
-                header h1 {
-                        font-size: 2rem;
-                        color: var(--primary-color);
-                        margin: 0 var(--spacing-sm);
-                }
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Centra el contenido ocupando el espacio disponible */
+}
 
                 header h1 {
-                        font-size: 2rem;
-                        color: var(--primary-color);
-                        margin: 0 var(--spacing-sm);
-                }
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 0;
+    text-align: center;
+}
+
+.slogan {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-top: var(--spacing-xs);
+    text-align: center;
+}
 
                 nav {
     display: none;
@@ -356,31 +367,15 @@ nav a[href*="#contacto"]::before {
                 }
 
                 @media (min-width: 769px) {
-                        .menu-toggle {
-                                display: none;
-                        }
-
-                        nav {
-        display: flex;
-        position: static;
-        width: auto;
-        height: auto;
-        background: none;
-        transform: none;
-        flex-direction: row;
-        padding: 0;
-    }
-    nav a {
-        font-size: 0.9rem;
-        margin: 0 var(--spacing-xs);
-    }
-    nav a:not([href*="#"]):not([href*="wa.me"])::before {
-        display: none; /* Oculta íconos en pantallas grandes para evitar sobrecarga */
-    }
-
                         header h1 {
-                                font-size: 2.5rem;
-                        }
+        font-size: 2.5rem;
+    }
+    .slogan {
+        font-size: 1.4rem;
+    }
+    header img {
+        width: 80px;
+    }
 
                         .producto img,
                         .swiper-slide img {
@@ -394,18 +389,26 @@ nav a[href*="#contacto"]::before {
 
                 @media (max-width: 768px) {
                         body {
-                                background-image: url('fondo-mobile.jpeg');
+                                background-image: url('images/fodo.jpg');
                                 background-attachment: scroll;
                         }
 
                         header {
-                                flex-wrap: wrap;
-                                padding: var(--spacing-xs);
-                        }
-
-                        header h1 {
-                                font-size: 1.5rem;
-                        }
+        padding: var(--spacing-xs);
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .slogan {
+        font-size: 1rem;
+        margin-top: var(--spacing-xs);
+    }
+    header img {
+        width: 60px;
+    }
+    nav a {
+        font-size: 1rem; /* Tamaño reducido para evitar sobrecarga */
+    }
 
                         .producto img,
                         .swiper-slide img {
@@ -484,26 +487,25 @@ nav a[href*="#contacto"]::before {
 
         <body id="top">
                 <header>
-    <img src="logo.png" alt="Logo Snoopy" width="90vh"/>
+    <img src="images/logo1.png" alt="Logo Snoopy" width="90vh"/>
     <div class="header-content">
         <h1>Waffles Ohana</h1>
         <p class="slogan">Dulces Momentos Para Disfrutar</p>
     </div>
     <button class="menu-toggle" aria-label="Abrir menú">☰</button>
     <nav>
-        <a href="#productos">Menú</a>
         <a href="#promociones">Promociones</a>
+        <a href="#productos">Menú</a>
         <a href="#galeria">Galería</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
-        <a href="#faq">Preguntas Frecuentes</a>
+        <a href="#faq">Preguntas</a>
         <a href="#ubicacion">Ubicación</a>
-        <a href="https://tiktok.com/@wafflesohana" target="_blank">TikTok</a>
+        <a href="https://www.tiktok.com/@ohana.waffles" target="_blank">TikTok</a>
         <a href="https://www.facebook.com/profile.php?id=61578154940131&sk=friends" target="_blank">Facebook</a>
         <a href="https://wa.me/5521763428" target="_blank">WhatsApp</a>
         <a href="https://www.instagram.com/ohanawaffles?igsh=MTB0ajhjY2R0NG45aA==" target="_blank">Instagram</a>
-        <a href="#contacto">Correo</a>
     </nav>
 </header>
 
@@ -511,7 +513,7 @@ nav a[href*="#contacto"]::before {
                         <h2>Waffle del Mes</h2>
                         <div class="productos">
                                 <div class="producto">
-                                        <img src="fon.jpg"
+                                        <img src="images/fon.jpg"
                                                 alt="Waffle Stitch Aloha con piña y coco"
                                                 loading="lazy" />
                                         <h3>Waffle Stitch Aloha</h3>
@@ -550,63 +552,63 @@ nav a[href*="#contacto"]::before {
     <h2>Nuestros Waffles</h2>
     <div class="productos">
         <div class="producto">
-            <img src="waffle clasico.jpg" alt="Waffle clásico con miel de maple" loading="lazy" />
+            <img src="images/waffle clasico.jpg" alt="Waffle clásico con miel de maple" loading="lazy" />
             <h3>Waffle Clásico</h3>
             <p>Con miel de maple y mantequilla. ¡Delicioso y crujiente!</p>
             <p><strong>Precio: $50 MXN</strong></p>
             <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20Clásico" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle frutas.jpg" alt="Waffle con fresas, plátano y kiwi" loading="lazy" />
+            <img src="images/waffle frutas.jpg" alt="Waffle con fresas, plátano y kiwi" loading="lazy" />
             <h3>Waffle de Frutas</h3>
             <p>Con fresas, plátano, kiwi. ¡Riquísimo!</p>
             <p><strong>Precio: $55 MXN</strong></p>
-            <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20de%20Frutas" class="boton-pedido">Pedir Ahora</a>
+            <a href="images/https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20de%20Frutas" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle con nutella.jpg" alt="Waffle con Nutella y fresas" loading="lazy" />
+            <img src="images/waffle con nutella.jpg" alt="Waffle con Nutella y fresas" loading="lazy" />
             <h3>Waffle con Nutella</h3>
             <p>Chocolate, fresa y mucho amor. ¡Un favorito de Stitch!</p>
             <p><strong>Precio: $60 MXN</strong></p>
             <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20con%20Nutella" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle snoopy.jpg" alt="Waffle Snoopy con crema y chispas" loading="lazy" />
+            <img src="images/waffle snoopy.jpg" alt="Waffle Snoopy con crema y chispas" loading="lazy" />
             <h3>Waffle Snoopy</h3>
             <p>Con crema batida, chispas de chocolate y un toque de caramelo. ¡Dulce como Snoopy!</p>
             <p><strong>Precio: $58 MXN</strong></p>
             <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20Snoopy" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle arcoiris.jpg" alt="Waffle Arcoíris con frutas y miel" loading="lazy" />
+            <img src="images/waffle arcoiris.jpg" alt="Waffle Arcoíris con frutas y miel" loading="lazy" />
             <h3>Waffle Arcoíris</h3>
             <p>Con frutas variadas, miel y un toque de crema batida. ¡Colorido y alegre!</p>
             <p><strong>Precio: $62 MXN</strong></p>
             <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20Arcoíris" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
+            <img src="images/waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
             <h3>Waffle Tropical</h3>
             <p>Con mango, coco rallado y salsa de maracuyá. ¡Un viaje a la playa!</p>
             <p><strong>Precio: $65 MXN</strong></p>
             <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20Tropical" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
+            <img src="images/waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
             <h3>Waffle Tropical</h3>
             <p>Con mango, coco rallado y salsa de maracuyá. ¡Un viaje a la playa!</p>
             <p><strong>Precio: $65 MXN</strong></p>
             <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20Tropical" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
+            <img src="images/waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
             <h3>Waffle Tropical</h3>
             <p>Con mango, coco rallado y salsa de maracuyá. ¡Un viaje a la playa!</p>
             <p><strong>Precio: $65 MXN</strong></p>
             <a href="https://wa.me/5521763428?text=Quiero%20pedir%20un%20Waffle%20Tropical" class="boton-pedido">Pedir Ahora</a>
         </div>
         <div class="producto">
-            <img src="waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
+            <img src="images/waffle tropical.jpg" alt="Waffle Tropical con mango y coco" loading="lazy" />
             <h3>Waffle Tropical</h3>
             <p>Con mango, coco rallado y salsa de maracuyá. ¡Un viaje a la playa!</p>
             <p><strong>Precio: $65 MXN</strong></p>
@@ -620,25 +622,25 @@ nav a[href*="#contacto"]::before {
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="waffle clasico.jpg" alt="Waffle decorado con crema y frutas" loading="lazy" />
+                <img src="images/waffle clasico.jpg" alt="Waffle decorado con crema y frutas" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="waffle con chocolate.jpg" alt="Waffle con chocolate y fresas" loading="lazy" />
+                <img src="images/waffle con chocolate.jpg" alt="Waffle con chocolate y fresas" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="waffle con nutella.jpg" alt="Waffle con helado y toppings" loading="lazy" />
+                <img src="images/waffle con nutella.jpg" alt="Waffle con helado y toppings" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="waffle crema y frutas.jpg" alt="Waffle con crema batida y frutos rojos" loading="lazy" />
+                <img src="images/waffle crema y frutas.jpg" alt="Waffle con crema batida y frutos rojos" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="waffle crema y frutos rojos.jpg" alt="Waffle con crema batida y frutos rojos" loading="lazy" />
+                <img src="images/waffle crema y frutos rojos.jpg" alt="Waffle con crema batida y frutos rojos" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="waffle frutas.jpg" alt="Waffle con fresas, plátano y kiwi" loading="lazy" />
+                <img src="images/waffle frutas.jpg" alt="Waffle con fresas, plátano y kiwi" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="waffle helado y toppings.jpg" alt="Waffle con helado y toppings variados" loading="lazy" />
+                <img src="images/waffle helado y toppings.jpg" alt="Waffle con helado y toppings variados" loading="lazy" />
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -746,11 +748,11 @@ nav a[href*="#contacto"]::before {
                         <a href="#top" class="scroll-top"> ↑­­­­­­­ </a>
 
                         <footer>
-    <p>Maria Fernanda Martinez Acevedo y Vanesa Osnalla Martinez | WhatsApp: 5521763428</p>
+    <p>Maria Fernanda Martinez Acevedo | Vanesa Osnalla Martinez</p>
     <div class="redes">
         <a href="https://www.facebook.com/profile.php?id=61578154940131&sk=friends" target="_blank">Facebook</a> |
         <a href="https://www.instagram.com/ohanawaffles?igsh=MTB0ajhjY2R0NG45aA==" target="_blank">Instagram</a> |
-        <a href="https://www.tiktok.com/@ohana.waffles?_t=ZS-8xeREsqpc6D&_r=1" target="_blank">TikTok</a>
+        <a href="https://www.tiktok.com/@ohana.waffles" target="_blank">TikTok</a>
     </div>
     <p>© 2025 Waffles Snoopy & Stitch - Todos los derechos reservados.</p>
 </footer>
